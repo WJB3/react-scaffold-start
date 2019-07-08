@@ -3,13 +3,20 @@ const config=require('./config');
 
 module.exports={
     entry:{
-        main:config.ENTRY_PATH
+        main:config.entry_path
     },
     resolve:{
-        extensions:config.RESOLVE_EXTENSIONS_GROUP,
-        alias:config.RESOLVE_ALIAS
+        extensions:config.resolve_extensions_group,
+        alias:config.resolve_alias
     },
     module:{
-        rules:config.RULES
+        rules:[
+            {
+                test: /\.(js|jsx)$/,
+                loader: 'babel-loader',
+                include:config.src_path,
+                exclude:/node_modules/
+            },
+        ]
     }
 }

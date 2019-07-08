@@ -5,40 +5,38 @@ const RESOLVE_EXTENSIONS_GROUP=['.js'];
 const RESOLVE_ALIAS={'@':SRC_PATH}
 const RULES=[{test:'js|jsx',use:'babel-loader',exclude:'/node_modules/',include:`${SRC_PATH}`}];
 
- 
-
 module.exports={
-    SRC_PATH:SRC_PATH,
-    ENTRY_PATH:ENTRY_PATH,
-    RESOLVE_EXTENSIONS_GROUP:RESOLVE_EXTENSIONS_GROUP,
-    RESOLVE_ALIAS:RESOLVE_ALIAS,
-    RULES:RULES,
-    DEVELOPMENT_DEVTOOL:'cheap-module-eval-source-map',
-    BUILD_DEVTOOL:'cheap-module-source-map',
-    DEV_PORT:10000,
-    DEV_OVERLAY:{
+    src_path:path.resolve(__dirname,"../src"),
+    entry_path:'./src/index.js',
+    resolve_extensions_group:['.js'],
+    resolve_alias:{'@':SRC_PATH},
+    rules:[],
+    development_devtool:'cheap-module-eval-source-map',
+    build_devtool:'cheap-module-source-map',
+    dev_port:8888,
+    dev_overlay:{
         warnings:false,
         errors:true
     },
-    DEV_HOST:"localhost",
-    DEV_IS_DISABLEDHOSTCHECK:true,
-    DEV_AUTO_OPEN:true,
-    DEV_NOINFO:true,
-    DEV_IS_HTTPS:false,
-    DEV_IS_HOT:false,
-    DEV_IS_COMPRESS:true,
-    DEV_IS_PROGRESS:true,
-    DEV_IS_QUIER:true,
-    DEV_IS_USELOCALIP:false,
-    DEV_PROXY:{
+    dev_host:"localhost",
+    dev_is_disabledcheckhost:true,
+    dev_auto_open:true,
+    dev_noinfo:true,
+    dev_is_https:false,
+    dev_is_hot:false,
+    dev_is_compress:true,
+    dev_is_progress:true,
+    dev_is_quiet:true,
+    dev_is_uselocalip:false,
+    dev_proxy:{
         "/api":{
             target:"http://localhost:8080",
             changeOrigin:true,
             pathRewrite:{"^api":"/api"}
         }
     },
-    DEV_HTML_PLUGIN_PATH:'src/public/index.html',
-    DEV_HTML_PLUGIN_INJECT:'body',
-    DEV_HTML_TITLE:'吴家宝搭建的React简易项目',
-    DEV_HTML_ICO:'assets/favicon-flash.ico'
+    dev_html_path:'src/public/index.ejs',
+    dev_html_js_inject:'body',
+    dev_html_title:'吴家宝搭建的React简易项目',
+    dev_html_ico:'src/assets/favicon-flash.ico'
 }

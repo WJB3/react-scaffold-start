@@ -12,33 +12,33 @@ const FriendlyErrorsWebpackPlugin=require('friendly-errors-webpack-plugin');
 
 module.exports=merge(baseWebpackConfig,{
     mode:'development',
-    devtool:config.DEVELOPMENT_DEVTOOL,
+    devtool:config.development_devtool,
     devServer:{
-        port:config.DEV_PORT,
-        overlay:config.DEV_OVERLAY,
-        host:config.DEV_HOST,
-        disableHostCheck:config.DEV_IS_DISABLEDHOSTCHECK,
-        open:config.DEV_AUTO_OPEN,
-        noInfo:config.DEV_NOINFO,
-        https:config.DEV_IS_HTTPS,
-        hot:config.DEV_IS_HOT,
-        compress:config.DEV_IS_COMPRESS,
-        progress:config.DEV_IS_PROGRESS,
-        quiet:config.DEV_IS_QUIER,
-        useLocalIp:config.DEV_IS_USELOCALIP,
-        proxy:config.DEV_PROXY
+        port:config.dev_port,
+        overlay:config.dev_overlay,
+        host:config.dev_host,
+        disableHostCheck:config.dev_is_disabledcheckhost,
+        open:config.dev_auto_open,
+        noInfo:config.dev_noinfo,
+        https:config.dev_is_https,
+        hot:config.dev_is_hot,
+        compress:config.dev_is_compress,
+        progress:config.dev_is_progress,
+        quiet:config.dev_is_quiet,
+        useLocalIp:config.dev_is_uselocalip,
+        proxy:config.dev_proxy
     },
     plugins:[
         new HtmlWebpackPlugin({
-            template:config.DEV_HTML_PLUGIN_PATH,//开发环境需要路径
-            inject:config.DEV_HTML_PLUGIN_INJECT,//所有javascript资源将被放置在body元素的底部
+            template:'src/public/index.ejs',//开发环境需要路径
+            inject:config.dev_html_js_inject,//所有javascript资源将被放置在body元素的底部
             minify:{
                 html5:true,
                 collapseWhitespace: true, //把生成的 index.html 文件的内容的没用空格去掉，减少空间
             },
-            title:config.DEV_HTML_TITLE,
+            title:config.dev_html_title,
             hash:true,
-            favicon:config.DEV_HTML_ICO,//将给定的favicon路径添加到输出HTML
+            favicon:config.dev_html_ico,//将给定的favicon路径添加到输出HTML
             showErrors:true,
         }),
          //热更新
@@ -52,6 +52,10 @@ module.exports=merge(baseWebpackConfig,{
             clearConsole: true,
             additionalFormatters: [],
             additionalTransformers: []
+        }),
+        new webpack.LoaderOptionsPlugin({
+            options:{
+            }
         })
     ]
 })
