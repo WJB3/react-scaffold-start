@@ -17,6 +17,18 @@ module.exports={
                 include:config.src_path,
                 exclude:/node_modules/
             },
+            {
+                test:/\.(woff|svg|eot|woff2|tff)$/,
+                use:[
+                    {
+                        loader:'url-loader',
+                        options:{
+                            limit:10000
+                        }
+                    }
+                ],
+                exclude:/node_modules/
+            }
         ]
     }
 }

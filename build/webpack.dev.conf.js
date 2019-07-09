@@ -30,7 +30,8 @@ module.exports=merge(baseWebpackConfig,{
     },
     plugins:[
         new HtmlWebpackPlugin({
-            template:'src/public/index.ejs',//开发环境需要路径
+            // filename:'index.html',
+            template:'src/public/index.html',//开发环境需要路径
             inject:config.dev_html_js_inject,//所有javascript资源将被放置在body元素的底部
             minify:{
                 html5:true,
