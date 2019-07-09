@@ -13,6 +13,21 @@ const FriendlyErrorsWebpackPlugin=require('friendly-errors-webpack-plugin');
 module.exports=merge(baseWebpackConfig,{
     mode:'development',
     devtool:config.development_devtool,
+    module:{
+        rules:[
+            {
+                test:/\.(png|svg|jpg|gif)$/,
+                use:[
+                    {
+                        loader:'file-loader',
+                        options:{
+                            limit:10000,
+                        }
+                    }
+                ]
+            }
+        ]
+    },
     devServer:{
         port:config.dev_port,
         overlay:config.dev_overlay,
@@ -30,23 +45,22 @@ module.exports=merge(baseWebpackConfig,{
     },
     plugins:[
         new HtmlWebpackPlugin({
-            // filename:'index.html',
-            template:'src/public/index.html',//开发环境需要路径
+            template:config.dev_html_template_path,
+            title:config.dev_html_title,
+            hash:true,
+            favicon:config.dev_html_ico,
+            showErrors:true,
             inject:config.dev_html_js_inject,//所有javascript资源将被放置在body元素的底部
             minify:{
                 html5:true,
                 collapseWhitespace: true, //把生成的 index.html 文件的内容的没用空格去掉，减少空间
-            },
-            title:config.dev_html_title,
-            hash:true,
-            favicon:config.dev_html_ico,//将给定的favicon路径添加到输出HTML
-            showErrors:true,
+            }
         }),
          //热更新
         new webpack.HotModuleReplacementPlugin(),
         new FriendlyErrorsWebpackPlugin({
             compilationSuccessInfo: {
-                messages: [`You application is running here http://localhost:${config.DEV_PORT}`],
+                messages: [`You application is running here http://localhost:${config.dev_port}`],
                 notes: ['Some additionnal notes to be displayed unpon successful compilation']
             },
             onErrors: function (severity, errors) {},

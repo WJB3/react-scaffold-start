@@ -18,7 +18,7 @@ module.exports={
         warnings:false,
         errors:true
     },
-    dev_host:"localhost",
+    dev_host:"192.168.0.107",
     dev_is_disabledcheckhost:true,
     dev_auto_open:true,
     dev_noinfo:true,
@@ -35,7 +35,7 @@ module.exports={
             pathRewrite:{"^api":"/api"}
         }
     },
-    dev_html_path:'src/public/index.ejs',
+    dev_html_template_path:'./src/public/index.ejs',
     dev_html_js_inject:'body',
     dev_html_title:'吴家宝搭建的React简易项目',
     dev_html_ico:'src/assets/favicon-flash.ico'
