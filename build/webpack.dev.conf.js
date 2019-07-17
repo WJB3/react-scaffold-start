@@ -7,6 +7,7 @@ const config=require('./config');
 const baseWebpackConfig=require('./webpack.base.conf');
 
 const HtmlWebpackPlugin=require('html-webpack-plugin');
+const utils=require("./utils")
 
 const FriendlyErrorsWebpackPlugin=require('friendly-errors-webpack-plugin');
 
@@ -14,19 +15,7 @@ module.exports=merge(baseWebpackConfig,{
     mode:'development',
     devtool:config.development_devtool,
     module:{
-        rules:[
-            {
-                test:/\.(png|svg|jpg|gif)$/,
-                use:[
-                    {
-                        loader:'file-loader',
-                        options:{
-                            limit:10000,
-                        }
-                    }
-                ]
-            }
-        ]
+        rules:utils.styleLoaders({sourceMap: config.dev_is_useSourceMap,usePostCSS:true})
     },
     devServer:{
         port:config.dev_port,

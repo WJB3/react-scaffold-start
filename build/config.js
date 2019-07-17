@@ -13,12 +13,12 @@ module.exports={
     rules:[],
     development_devtool:'cheap-module-eval-source-map',
     build_devtool:'cheap-module-source-map',
-    dev_port:8888,
+    dev_port:10000,
     dev_overlay:{
         warnings:false,
         errors:true
     },
-    dev_host:"192.168.0.107",
+    dev_host:"192.168.0.113",
     dev_is_disabledcheckhost:true,
     dev_auto_open:true,
     dev_noinfo:true,
@@ -38,5 +38,6 @@ module.exports={
     dev_html_template_path:'./src/public/index.ejs',
     dev_html_js_inject:'body',
     dev_html_title:'吴家宝搭建的React简易项目',
-    dev_html_ico:'src/assets/favicon-flash.ico'
+    dev_html_ico:'src/assets/favicon-flash.ico',
+    dev_is_useSourceMap:true
 }

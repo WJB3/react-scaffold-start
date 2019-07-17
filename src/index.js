@@ -1,6 +1,7 @@
 import ReactDOM from 'react-dom';
 import React from 'react';
+import "./aa.css";
+import Crypto from "./utils/crypto";
 
-const App = (<h2>Hello World!</h2>);
 
-ReactDOM.render(App,document.getElementById('root'));
+ReactDOM.render(<h2 className="main">Hello World!</h2>,document.getElementById('root'));
