@@ -36,7 +36,7 @@ exports.cssLoaders=function(options){
 
         return loaders;
     }
-console.log(generateLoaders())
+ 
     return {
         css:generateLoaders()
     }
