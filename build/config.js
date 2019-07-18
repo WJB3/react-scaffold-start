@@ -8,12 +8,12 @@ const RULES=[{test:'js|jsx',use:'babel-loader',exclude:'/node_modules/',include:
 module.exports={
     src_path:path.resolve(__dirname,"../src"),
     entry_path:'./src/index.js',
-    resolve_extensions_group:['.js'],
+    resolve_extensions_group:['.js','.ts','.tsx'],
     resolve_alias:{'@':SRC_PATH},
     rules:[],
     development_devtool:'cheap-module-eval-source-map',
     build_devtool:'cheap-module-source-map',
-    dev_port:10000,
+    dev_port:15000,
     dev_overlay:{
         warnings:false,
         errors:true

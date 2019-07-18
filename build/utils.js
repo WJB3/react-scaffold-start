@@ -1,3 +1,4 @@
+const path =require('path')
 exports.cssLoaders=function(options){
     options=options||{}
 
@@ -12,7 +13,8 @@ exports.cssLoaders=function(options){
         loader:"css-loader",
         options:{
             modules:true,
-            sourceMap:options.sourceMap
+            sourceMap:options.sourceMap,
+
         }
     }
 
@@ -35,9 +37,18 @@ exports.cssLoaders=function(options){
             })
         }
 
+        if(options.useTypescriptCssModule){
+            loaders.push({
+                loader:'typed-css-modules-loader',
+                options:{
+                    modules: true,
+                }
+            })
+        }
+
         return loaders;
     }
- 
+
     return {
         css:generateLoaders(),
         less:generateLoaders('less'),
@@ -48,10 +59,13 @@ exports.styleLoaders=function(options){
     const output=[];
     const loaders=exports.cssLoaders(options);
 
+    console.log(loaders);
+
     for(const extension in loaders){
         const loader=loaders[extension];
         output.push({
             test:new RegExp("\\."+extension+"$"),
+            include: path.resolve('src/'),
             use:loader
         })
     }

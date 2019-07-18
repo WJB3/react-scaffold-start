@@ -1,4 +1,5 @@
 import * as React from 'react';
+import   './index.less';
 
 class Button extends React.Component{
     static props={
@@ -10,7 +11,7 @@ class Button extends React.Component{
         const {type,children}=this.props;
 
         return(
-            <div className={`b_button-${type}`}>{children}</div>
+            <div className={"b_button"}>{children}</div>
         )
     }
 }

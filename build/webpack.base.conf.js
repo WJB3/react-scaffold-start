@@ -18,6 +18,17 @@ module.exports={
                 exclude:/node_modules/
             },
             {
+                test:/\.tsx$/,
+                use:[
+                    {
+                        loader:'ts-loader',
+                        options:{
+                            transpileOnly:true
+                        }
+                    }
+                ]
+            },
+            {
                test:/\.(woff|svg|eot|woff2|tff)$/,
                use:[
                    {
@@ -27,7 +38,7 @@ module.exports={
                        }
                    }
                ],
-               exclude:/node_modules/ 
+               exclude:/node_modules/
             }
         ]
     },

@@ -1,24 +1,23 @@
 import React,{Component} from 'react';
 import styles from './App.less';
+import Button from './../components/button/index.tsx';
 import crypto from './../utils/crypto';
 
 class App extends React.Component{
 
     componentDidMount(){
-   
-      const cryptoCode=crypto.Encrypt("word");
-      console.log(cryptoCode)
-    
-    }   
+
+
+    }
 
     componentWillUnmount(){
-        
+
     }
 
     render(){
         return(
             <div className={styles.container}>
-                Welcome to my world!
+                <Button>Welcome to my world!</Button>
             </div>
         )
     }
