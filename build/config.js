@@ -18,7 +18,7 @@ module.exports={
         warnings:false,
         errors:true
     },
-    dev_host:"192.168.0.113",
+    dev_host:"localhost",
     dev_is_disabledcheckhost:true,
     dev_auto_open:true,
     dev_noinfo:true,

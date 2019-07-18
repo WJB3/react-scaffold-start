@@ -38,7 +38,8 @@ exports.cssLoaders=function(options){
     }
  
     return {
-        css:generateLoaders()
+        css:generateLoaders(),
+        less:generateLoaders('less'),
     }
 }
 
