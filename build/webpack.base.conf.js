@@ -49,7 +49,8 @@ module.exports = {
                     {
                         loader: './src/loader/css-loader/index',
                         options: {
-                            modules: true
+                            modules: true,
+                            camelCase:true
                         }
                     }
                 ]

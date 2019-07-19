@@ -1,3 +1,8 @@
 /**依赖详解**/
 @babel/core 将@babel/core的作用是把 js 代码分析成 ast ，方便各个插件分析语法进行相应的处理。
 @babel/preset-react 转化react中jsx的写法
+
+/**css-loader抄袭笔记**/
+loaderUtils.getOptions(this)  这个函数可以获取 loader的options 且是对象类型
+postcss 是js插件 类似于babel对js的操作
+postcss-modules-values 可以在css使用变量
