@@ -1,9 +1,5 @@
 const path=require('path')
 const SRC_PATH=path.resolve(__dirname,"../src");
-const ENTRY_PATH='./src/index.js';
-const RESOLVE_EXTENSIONS_GROUP=['.js'];
-const RESOLVE_ALIAS={'@':SRC_PATH}
-const RULES=[{test:'js|jsx',use:'babel-loader',exclude:'/node_modules/',include:`${SRC_PATH}`}];
 
 module.exports={
     src_path:path.resolve(__dirname,"../src"),

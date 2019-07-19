@@ -1,46 +1,60 @@
 
-const config=require('./config');
+const config = require('./config');
 
-module.exports={
-    entry:{
-        main:config.entry_path
+module.exports = {
+    entry: {
+        main: config.entry_path
     },
-    resolve:{
-        extensions:config.resolve_extensions_group,
-        alias:config.resolve_alias
+    resolveLoader: {
+        modules: ['node_modules']
     },
-    module:{
-        rules:[
+    resolve: {
+        extensions: config.resolve_extensions_group,
+        alias: config.resolve_alias
+    },
+    module: {
+        rules: [
             {
                 test: /\.(js|jsx)$/,
                 loader: 'babel-loader',
-                include:config.src_path,
-                exclude:/node_modules/
+                include: config.src_path,
+                exclude: /node_modules/
             },
             {
-                test:/\.tsx$/,
-                use:[
+                test: /\.tsx$/,
+                use: [
                     {
-                        loader:'ts-loader',
-                        options:{
-                            transpileOnly:true
+                        loader: 'ts-loader',
+                        options: {
+                            transpileOnly: true
                         }
                     }
                 ]
             },
             {
-               test:/\.(woff|svg|eot|woff2|tff)$/,
-               use:[
-                   {
-                       loader:'url-loader',
-                       options:{
-                           limit:10000
-                       }
-                   }
-               ],
-               exclude:/node_modules/
+                test: /\.(woff|svg|eot|woff2|tff)$/,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 10000
+                        }
+                    }
+                ],
+                exclude: /node_modules/
+            },
+            {
+                test: /\.(wjb)$/,
+                use: [
+                    {
+                        loader: './src/loader/css-loader/index',
+                        options: {
+                            modules: true
+                        }
+                    }
+                ]
             }
         ]
     },
-    plugins:[]
+    plugins: []
 }

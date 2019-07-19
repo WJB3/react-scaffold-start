@@ -2,17 +2,10 @@ import React,{Component} from 'react';
 import styles from './App.less';
 import Button from './../components/button/index.tsx';
 import crypto from './../utils/crypto';
+import "./App.wjb";
 
 class App extends React.Component{
 
-    componentDidMount(){
-
-
-    }
-
-    componentWillUnmount(){
-
-    }
 
     render(){
         return(
