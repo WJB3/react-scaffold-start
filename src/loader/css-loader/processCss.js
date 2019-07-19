@@ -17,6 +17,7 @@ module.exports=function processCss(inputSource,inputMap,options,callback){
     };
 
     var pipeline=postcss([
+        modulesValue,
         
     ])
 }
