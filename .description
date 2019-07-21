@@ -5,4 +5,51 @@
 /**css-loader抄袭笔记**/
 loaderUtils.getOptions(this)  这个函数可以获取 loader的options 且是对象类型
 postcss 是js插件 类似于babel对js的操作
-postcss-modules-values 可以在css使用变量
+postcss-modules-values 可以在css使用变量其作用是解析变量
+path.relative 方法接受两个绝对路径的参数，该方法返回第二个路径相对于第一个路径的相对路径，如果path.relative方法的两个参数相同，则返回一个空字符串。
+```example
+path.relative('/data/orandea/test/aaa', '/data/orandea/impl/bbb')
+// /data/orandea/impl/bbb
+```
+this.async:根据webpack文档，当我们调用this.async()时，会将loader变为一个异步的loader，并返回一个异步回调。
+
+postcss-modules-local-by-default 用于cssmodule控制作用域css-loader的配置项modules有关；
+如果modules配置为true，则该插件会给每个类名前加:local，这样在js中import s from './a.css'时得到的s值为{ colorYellow: 'yellow', aClass: '_3RfWl8Fjg9j10HraIxvVwo _2WlYzvzC-urSx4y6mIOOFM', app: '_2fkqRy5LeEcw20RyY_eLpM' }，
+否则为{ colorYellow: 'yellow', aClass: '_3RfWl8Fjg9j10HraIxvVwo _2WlYzvzC-urSx4y6mIOOFM' }；区别在于a.css中app这个class，在示例代码中.app前面没加:local则导出的对象中不包含app，
+但是modules设置为true时本插件会默认给app加上local，所以导出的对象中就有app。
+ 
+loaderUtils.isUrlRequest  判断是否是一个url
+loaderUtils.urlToRequest  将一些资源URL转换为webpack模块URL。
+
+postcss-modules-extract-imports该插件的作用是将
+````
+:local(.aClass) {
+    composes: className from './b.css';
+    background: colorYellow;
+}   
+```转出
+```
+:import("./b.css"){
+  className: i__imported_className_0;
+}
+:local(.aClass) {
+    composes: i__imported_className_0;
+    background: colorYellow;
+}
+```
+postcss-modules-scope该插件的作用就是export出js中能够引入的对象
+```
+:local(.aClass) {
+    composes: i__imported_className_0;
+    background: colorYellow;
+}
+```转成
+```
+:export {
+  aClass: _3RfWl8Fjg9j10HraIxvVwo
+}
+._3RfWl8Fjg9j10HraIxvVwo {
+    composes: i__imported_className_0;
+    background: colorYellow;
+}
+```
