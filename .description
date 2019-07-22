@@ -53,3 +53,11 @@ postcss-modules-scope该插件的作用就是export出js中能够引入的对象
     background: colorYellow;
 }
 ```
+
+postcss.plugin是编写自己的postcss插件的
+
+postcss-value-parser 是将CSS声明值和at规则参数转换为节点树，并提供简单的遍历API。
+
+css-selector-tokenizer 解析CSS字符串选择器。
+
+postcss 为我们提供了一些基本的 ast 操作方法：-walk：遍历所有节点信息-walkAtRules：遍历所有 atrule 类型节点-walkRules：遍历所有 rule 类型节点-walkComments：遍历所有 comment 类型节点
