@@ -2,11 +2,7 @@ var loaderUtils=require("loader-utils");
 var path=require("path");
 
 module.exports=function getLocalIdent(loaderContext,localIdentName,localName,options){
-
-    console.log("loaderContext"+loaderContext+"<br />")
-    console.log("localIdentName"+localIdentName+"<br />")
-    console.log("localName"+localName+"<br />")
-    console.log("options"+options+"<br />")
+ 
     if(!options.context){
         if(loaderContext.rootContext){
             options.context=loaderContext.rootContext;

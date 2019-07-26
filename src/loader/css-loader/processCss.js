@@ -208,3 +208,7 @@ module.exports = function processCss(inputSource, inputMap, options, callback) {
         }
     })
 }
+
+function CSSLoaderError(name,message,loc,source,error){
+    Error.call(this);
+}
