@@ -1,11 +1,14 @@
 var postcss = require('postcss');
+var formatCodeFrame=require("babel-code-frame");
 var modulesValues = require('postcss-modules-values');
 var getLocalIdent = require("./getLocalIdent");
 var localByDefault = require("postcss-modules-local-by-default");
 var extractImports = require("postcss-modules-extract-imports");
 var valueParser = require("postcss-value-parser");
 var Tokenizer = require("css-selector-tokenizer");
+var loaderUtils = require("loader-utils");
 var icssUtils = require("icss-utils");
+var modulesScope=require("postcss-modules-scope");
 
 var parserPlugin = postcss.plugin("css-loader-parser", function (options) {
     return function (css) {
@@ -209,6 +212,27 @@ module.exports = function processCss(inputSource, inputMap, options, callback) {
     })
 }
 
+function formatMessage(message,loc,source){
+    var formatted=message;
+    if(loc){
+        formatted=formatted
+        +' ('+loc.line+':'+loc.column+')';
+    }
+    if(loc&&source){
+        formatted=formatted
+        +'\n\n'+formatCodeFrame(source,loc.line,loc.columns)+'\n' ;
+    }
+    return formatted;
+}
+
 function CSSLoaderError(name,message,loc,source,error){
     Error.call(this);
+    Error.captureStackTrace(this,CSSLoaderError);
+    this.name=name;
+    this.error=error;
+    this.message=formatMessage(message,loc,source);
+    this.hideStack=true;
 }
+
+CSSLoaderError.prototype=Object.create(Error.prototype);
+CSSLoaderError.prototype.constructor=CSSLoaderError;

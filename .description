@@ -61,3 +61,22 @@ postcss-value-parser 是将CSS声明值和at规则参数转换为节点树，并
 css-selector-tokenizer 解析CSS字符串选择器。
 
 postcss 为我们提供了一些基本的 ast 操作方法：-walk：遍历所有节点信息-walkAtRules：遍历所有 atrule 类型节点-walkRules：遍历所有 rule 类型节点-walkComments：遍历所有 comment 类型节点
+
+babel-code-frame 可以展示报错信息
+/**
+const rawLines = `class Foo {
+  constructor()
+}`;
+const lineNumber = 2;
+const colNumber = 16;
+
+const result = codeFrame(rawLines, lineNumber, colNumber, { /* options */ });
+ 1 | class Foo {
+> 2 |   constructor()
+    |                ^
+  3 | }
+**/
+
+btoa() 方法用于创建一个 base-64 编码的字符串。
+
+unescape() 函数可对通过 escape() 编码的字符串进行解码。
