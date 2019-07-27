@@ -70,7 +70,7 @@ var parserPlugin = postcss.plugin("css-loader-parser", function (options) {
                 imports["$" + prop] = importItems.length;
                 importItems.push({
                     url: url,
-                    export: icss.icssImports[key][prop];
+                    export: icss.icssImports[key][prop]
                 })
             })
         })
@@ -130,9 +130,11 @@ var parserPlugin = postcss.plugin("css-loader-parser", function (options) {
 })
 
 module.exports = function processCss(inputSource, inputMap, options, callback) {
-    console.log("processCss")
+ 
     var query = options.query;
     var context = query.context;
+
+    //localIdentName 配置生成项的标识符
     var localIdentName = query.localIdentName || "[hash:base64]";
 
     var localIdentRegExp = query.localIdentRegExp;
@@ -166,6 +168,7 @@ module.exports = function processCss(inputSource, inputMap, options, callback) {
         extractImports(),
         modulesScope({
             generateScopedName: function generateScopedName(exportName) {
+                //exportName=container
                 return customGetLocalIdent(options.loaderContext, localIdentName, exportName, {
                     regExp: localIdentRegExp,
                     hashPrefix: query.hashPrefix || "",

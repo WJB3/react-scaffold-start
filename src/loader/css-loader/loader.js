@@ -5,11 +5,26 @@ var compileExports=require("./compile-exports");
 
 module.exports = function (context, map) {
 
+    //context是解析的内容
+    //在这里是.container{
+        //color:yellow
+    //}
+    console.log("进入Loader")
+    console.log(context)
+
     var callback = this.async();
     var query = loaderUtils.getOptions(this) || {};
+    //query是传过来的options项
+
     var moduleMode = query.modules;//是否开启了cssmodule
     var camelCaseKeys = query.camelCase;//是否开启驼峰
     var sourceMap = query.sourceMap || false;//是否开启了sourceMap
+
+    //loaderUtils.getRemainingRequest(this).split("!").pop());
+    //获取处理资源的路径//E:\react-scaffold-start\src\routes\App.css
+
+    //loaderUtils.getCurrentRequest(this).split("!").pop()
+    //获取处理资源的路径//E:\react-scaffold-start\src\routes\App.css
 
     processCss(context, map, {
         mode: moduleMode ? "local" : "global",

@@ -10,11 +10,11 @@ exports.cssLoaders=function(options){
     }
 
     const cssLoader={
-        loader:"css-loader",
+        loader:"./src/loader/css-loader/index",
         options:{
             modules:true,
             sourceMap:options.sourceMap,
-
+            camelCase:true
         }
     }
 
