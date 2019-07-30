@@ -10,7 +10,6 @@ module.exports = function (context, map) {
         //color:yellow
     //}
     console.log("进入Loader")
-    console.log(context)
 
     var callback = this.async();
     var query = loaderUtils.getOptions(this) || {};
