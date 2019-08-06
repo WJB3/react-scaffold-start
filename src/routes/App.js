@@ -1,8 +1,5 @@
 import React,{Component} from 'react';
 import './App.css';
-// import Button from './../components/button/index.tsx';
-import crypto from './../utils/crypto';
- 
 
 
 class App extends React.Component{

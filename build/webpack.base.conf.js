@@ -42,18 +42,6 @@ module.exports = {
                     }
                 ],
                 exclude: /node_modules/
-            },
-            {
-                test: /\.(wjb)$/,
-                use: [
-                    {
-                        loader: './src/loader/css-loader/index',
-                        options: {
-                            modules: true,
-                            camelCase:true
-                        }
-                    }
-                ]
             }
         ]
     },
