@@ -25,6 +25,22 @@ module.exports = function (context, map) {
     //loaderUtils.getCurrentRequest(this).split("!").pop()
     //获取处理资源的路径//E:\react-scaffold-start\src\routes\App.css
 
+    if(sourceMap){
+        if(map){
+            if(typeof map==="string"){
+                map=JSON.stringify(map);
+            }
+            if(map.sources){
+                map.sources=map.sources.map(function(source){
+                    return source.replace(/\\/g,'/');
+                })
+                map.sourceRoot='';
+            }
+        }else{
+            map=null;
+        }
+    }
+
     processCss(context, map, {
         mode: moduleMode ? "local" : "global",
         from: loaderUtils.getRemainingRequest(this).split("!").pop(),
