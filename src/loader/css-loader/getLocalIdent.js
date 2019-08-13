@@ -25,6 +25,10 @@ module.exports=function getLocalIdent(loaderContext,localIdentName,localName,opt
 
     console.log("localIdentName")
     console.log(localIdentName)
-    loaderUtils.interpolateName(loaderContext,localIdentName,options);
+    var hash = loaderUtils.interpolateName(loaderContext, localIdentName, options);
+    console.log("hash")
+    console.log(hash)
+    console.log(hash.replace(new RegExp("[^a-zA-Z0-9\\-_\u00A0-\uFFFF]", "g"), "-").replace(/^((-?[0-9])|--)/, "_$1"))
+	return hash.replace(new RegExp("[^a-zA-Z0-9\\-_\u00A0-\uFFFF]", "g"), "-").replace(/^((-?[0-9])|--)/, "_$1");
     
 }

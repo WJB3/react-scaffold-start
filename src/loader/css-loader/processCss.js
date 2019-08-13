@@ -141,6 +141,9 @@ module.exports = function processCss(inputSource, inputMap, options, callback) {
 
     var customGetLocalIdent = query.getLocalIdent || getLocalIdent;
 
+    console.log("customGetLocalIdent")
+    console.log(customGetLocalIdent)
+
     var parserOptions = {
         mode: options.mode,
         url: query.url !== false,
@@ -179,6 +182,8 @@ module.exports = function processCss(inputSource, inputMap, options, callback) {
         parserPlugin(parserOptions)
     ]);
 
+    console.log("pipeline")
+
     pipeline.process(inputSource,{
         from:"/css-loader!"+options.from,
         to:options.to,
@@ -189,6 +194,7 @@ module.exports = function processCss(inputSource, inputMap, options, callback) {
             annotation:false
         }:null
     }).then(function(result){
+        console.log("Result")
         callback(null,{
             source:result.css,
             map:result.map&&result.map.toJSON(),
