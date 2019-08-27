@@ -15,7 +15,7 @@ module.exports=merge(baseWebpackConfig,{
     mode:'development',
     devtool:config.development_devtool,
     module:{
-        rules:utils.styleLoaders({sourceMap: config.dev_is_useSourceMap,usePostCSS:true,useTypescriptCssModule:false})
+        rules:utils.styleLoaders({sourceMap: config.dev_is_useSourceMap,usePostCSS:true,useTypescriptCssModule:true})
     },
     devServer:{
         port:config.dev_port,

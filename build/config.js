@@ -3,7 +3,7 @@ const SRC_PATH=path.resolve(__dirname,"../src");
 
 module.exports={
     src_path:path.resolve(__dirname,"../src"),
-    entry_path:'./src/index.js',
+    entry_path:'./src/index.tsx',
     resolve_extensions_group:['.js','.ts','.tsx'],
     resolve_alias:{'@':SRC_PATH},
     rules:[],

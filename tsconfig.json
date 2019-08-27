@@ -5,7 +5,8 @@
     "allowJs": true,
     "jsx": "react",
     "sourceMap": true,
-    "declaration": false
+    "declaration": false,
+    "allowSyntheticDefaultImports":true
   },
   "include": [
     "./src/*"
