@@ -3,11 +3,10 @@ import  './importIcons.ts';
  
 import *as styles from './index.less';
 
-console.log(styles)
 interface IconProps {
-  type: string,
-  style:object,
-  onClick:React.MouseEventHandler<SVGElement>
+  type?: string,
+  style?:object,
+  onClick?:React.MouseEventHandler<SVGElement>
 }
 
 const Icon: React.FunctionComponent<IconProps> = (props) => {
