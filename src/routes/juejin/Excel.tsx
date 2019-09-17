@@ -167,7 +167,9 @@ class Excel extends React.Component{
                 const f = file;
                 const reader = new FileReader();
                 reader.onload = function (e) {
+
                     const datas = e.target.result;
+
                     const workbook = XLSX.read(datas, {
                         type: 'binary'
                     });//尝试解析datas
@@ -175,7 +177,6 @@ class Excel extends React.Component{
                     const first_worksheet = workbook.Sheets[workbook.SheetNames[0]];//是工作簿中的工作表的有序列表
 
                     const jsonArr = XLSX.utils.sheet_to_json(first_worksheet, { header: 1 });//将工作簿对象转换为JSON对象数组
-
 
                     _this.handleImpotedJson(jsonArr, file);
                 };
