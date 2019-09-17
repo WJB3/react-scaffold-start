@@ -1,1 +1,1 @@
-export const iconWrapper: string;
+export const spining: string;

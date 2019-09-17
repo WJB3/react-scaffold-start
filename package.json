@@ -4,7 +4,7 @@
   "description": "a react scaffold project",
   "main": "src/index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "cross-env NODE_ENV=test jest --config=jest.config.js --runInBand",
     "start": "cross-env webpack-dev-server --config build/webpack.dev.conf.js",
     "build": "cross-env webpack --config build/webpack.dev.conf.js"
   },
@@ -12,7 +12,9 @@
   "license": "ISC",
   "dependencies": {
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "react-router": "^5.0.1",
+    "react-router-dom": "^5.0.1"
   },
   "devDependencies": {
     "@ant-design/create-react-context": "^0.2.4",
@@ -26,6 +28,7 @@
     "cross-env": "^5.2.0",
     "crypto-js": "^3.1.9-1",
     "css-loader": "1.0.1",
+    "enquire": "^0.0.2",
     "eslint": "^6.0.1",
     "file-loader": "^4.0.0",
     "friendly-errors-webpack-plugin": "^1.7.0",
@@ -33,16 +36,18 @@
     "less": "^3.9.0",
     "less-loader": "^5.0.0",
     "postcss-loader": "^3.0.0",
+    "prop-types": "^15.7.2",
     "style-loader": "^0.23.1",
     "svg-sprite-loader": "^4.1.6",
     "ts-loader": "^6.0.4",
     "typed-css-modules-loader": "^0.0.17",
-    "typescript": "^3.5.3",
+    "typescript": "^3.6.2",
     "typings-for-css-modules-loader": "^1.7.0",
     "url-loader": "^2.0.1",
     "webpack": "^4.35.3",
     "webpack-cli": "3.1.2",
     "webpack-dev-server": "^3.7.2",
-    "webpack-merge": "^4.2.1"
+    "webpack-merge": "^4.2.1",
+    "xlsx": "^0.15.1"
   }
 }

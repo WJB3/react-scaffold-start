@@ -13,7 +13,7 @@ exports.cssLoaders = function (options) {
         loader: "css-loader",
         options: {
             sourceMap: options.sourceMap,
-            modules:true
+            modules:options.useCssModule
         }
     }
 

@@ -1,5 +1,7 @@
 
 const config = require('./config');
+const path=require('path')
+const SRC_PATH=path.resolve(__dirname,"../src");
 
 module.exports = {
     entry: {
@@ -10,7 +12,9 @@ module.exports = {
     },
     resolve: {
         extensions: config.resolve_extensions_group,
-        alias: config.resolve_alias
+        alias: {
+            "@":path.resolve(__dirname,"../src")
+        }
     },
     module: {
         rules: [
@@ -21,7 +25,7 @@ module.exports = {
                 exclude: /node_modules/
             },
             {
-                test: /\.tsx$/,
+                test: /\.(tsx|ts)$/,
                 use: [
                     {
                         loader: 'ts-loader',
