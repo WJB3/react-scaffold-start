@@ -14,7 +14,7 @@
     "icss-utils": "^4.1.1",
     "loader-utils": "^1.2.3",
     "lodash": "^4.17.15",
-    "postcss": "^7.0.17",
+    "postcss": "^8.2.10",
     "postcss-modules-extract-imports": "^2.0.0",
     "postcss-modules-local-by-default": "^3.0.2",
     "postcss-modules-scope": "^2.1.0",
